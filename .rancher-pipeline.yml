@@ -9,19 +9,19 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: docker.dev.folio.org/mod-audit:firebird-latest
+      tag: docker.dev.folio.org/mod-audit:vega-latest
       pushRemote: true
       registry: docker.dev.folio.org
 - name: Deploy
   steps:
   - applyAppConfig:
-      catalogTemplate: p-ngvqv:firebird-helmcharts-mod-audit
+      catalogTemplate: p-jqjbc:vega-helmcharts-mod-audit
       version: 0.1.24
       answers:
         image.repository: docker.dev.folio.org/mod-audit
-        image.tag: firebird-latest
+        image.tag: vega-latest
         postJob.enabled: true
-      targetNamespace: firebird
+      targetNamespace: vega
       name: mod-audit
 timeout: 60
 notification: {}
